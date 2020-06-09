@@ -20,7 +20,7 @@ namespace APPROVAL.Data
 
         public Command GetCommandById(int id)
         {
-            return new Command { id = 0, howTo = "Boil an egg", line = "Boil water", platForm = "Kettle & Pan" };
+            return new Command { id = 2, howTo = "Boil an egg??", line = "Boil water", platForm = "Kettle & Pan" };
         }
     }
 }
