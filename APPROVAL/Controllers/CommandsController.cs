@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using APPROVAL.Data;
-using APPROVAL.Moedls;
+using APPROVAL.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace APPROVAL.Controllers
