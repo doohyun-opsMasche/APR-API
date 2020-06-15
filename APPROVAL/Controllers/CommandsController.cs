@@ -8,7 +8,6 @@ namespace APPROVAL.Controllers
     //api commands
     // [Route("api/[controller]")]
     [Route("api/commands")]
-
     [ApiController]
     public class CommandsController : ControllerBase
     {
@@ -20,7 +19,7 @@ namespace APPROVAL.Controllers
         }
         
         // Get api/commands
-        [HttpGet]
+        [HttpGet, MapToApiVersion("1.0")]
         public ActionResult<IEnumerable<Command>> GetAllCommands()
         {
             var commandItems = _repository.GetAllCommands();
@@ -29,13 +28,22 @@ namespace APPROVAL.Controllers
         }
 
         // Get api/commands/{id}
-        [HttpGet("{id}")]
+        [HttpGet("{id}"), MapToApiVersion("1.0")]
         public ActionResult<Command> GetCommandById(int id)
         {
             var commandItem = _repository.GetCommandById(id);
 
             return Ok(commandItem);
         }
+
+
+        // [HttpGet("{id}"), MapToApiVersion("2.0")]
+        // public ActionResult<Command> GetCommandByIds(int id)
+        // {
+        //     var commandItem = new string [] {"sample", "value2", "value3", "value4"};
+
+        //     return Ok(commandItem);
+        // }
 
     }
 }

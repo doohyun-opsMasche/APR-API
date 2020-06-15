@@ -71,3 +71,5 @@ D:/APR-API/APPROVAL/obj/Debug/netcoreapp3.1/APPROVAL.genruntimeconfig.cache
 /Users/user/Documents/APR-API/APPROVAL/obj/Debug/netcoreapp3.1/APPROVAL.dll
 /Users/user/Documents/APR-API/APPROVAL/obj/Debug/netcoreapp3.1/APPROVAL.pdb
 /Users/user/Documents/APR-API/APPROVAL/obj/Debug/netcoreapp3.1/APPROVAL.genruntimeconfig.cache
+/Users/user/Documents/APR-API/APPROVAL/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Mvc.Versioning.dll
+/Users/user/Documents/APR-API/APPROVAL/obj/Debug/netcoreapp3.1/APPROVAL.MvcApplicationPartsAssemblyInfo.cs
