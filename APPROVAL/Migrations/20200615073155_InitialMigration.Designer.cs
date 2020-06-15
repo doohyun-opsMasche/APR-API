@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace APPROVAL.Migrations
 {
     [DbContext(typeof(CommanderContext))]
-    [Migration("20200614125216_InitialMigration")]
+    [Migration("20200615073155_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

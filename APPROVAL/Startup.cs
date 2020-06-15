@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using APPROVAL.Data;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,10 +29,19 @@ namespace APPROVAL
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //DB connection 처리
-            services.AddDbContext<CommanderContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("CommanderConnection")));
+            
+            //DB Connection 처리
+            //Docker 환경
+            // services.AddDbContext<CommanderContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("CommanderConnection")));
+            //Smilegate 통테 환경
+            services.AddDbContext<CommanderContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("ApprovalConnection")));
+
             //Repository 연결
             services.AddScoped<ICommanderRepo, SqlCommanderRepo>();
+
+            //Mapper 설졍            
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            
             //API Versioning
             services.AddApiVersioning(options => {
                 options.ApiVersionReader = new MediaTypeApiVersionReader();
