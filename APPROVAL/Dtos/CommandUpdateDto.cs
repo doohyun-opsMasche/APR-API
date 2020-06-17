@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace APPROVAL.Dtos
 {
-    public class CommandCreateDto
+    public class CommandUpdateDto
     {
         // camel 표기법 준수
         // error handling 을 위해 형을 명시하는 것이 좋음

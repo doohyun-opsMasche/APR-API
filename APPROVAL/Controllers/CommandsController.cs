@@ -3,6 +3,7 @@ using APPROVAL.Data;
 using APPROVAL.Dtos;
 using APPROVAL.Models;
 using AutoMapper;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace APPROVAL.Controllers
@@ -20,6 +21,20 @@ namespace APPROVAL.Controllers
         {
             _repository = repository;
             _mapper = mapper;
+        }
+
+        // Post api/commands
+        [HttpPost]
+        public ActionResult<CommandCreateDto> CreateCommand(CommandCreateDto commandCreateDto)
+        {
+            var commandModel = _mapper.Map<Command>(commandCreateDto);
+            _repository.CreateCommand(commandModel);
+            _repository.SaveChanges();
+
+            //return 을 ReadDto 포맷으로 전달이 필요할 경우
+            var commandReadDto = _mapper.Map<CommandReadDto>(commandModel);
+
+            return CreatedAtRoute(nameof(GetCommandById), new { id = commandReadDto.id }, commandReadDto);
         }
 
         // Get api/commands
@@ -44,18 +59,62 @@ namespace APPROVAL.Controllers
             return NotFound();
         }
 
-        // Post api/commands
-        [HttpPost]
-        public ActionResult<CommandCreateDto> CreateCommand(CommandCreateDto commandCreateDto)
+        // PUT api/commands/{id}
+        [HttpPut("{id}")]
+        public ActionResult UpdateCommand(int id, CommandUpdateDto commandUpdateDto)
         {
-            var commandModel = _mapper.Map<Command>(commandCreateDto);
-            _repository.CreateCommand(commandModel);
+            var commandModelFromRepo = _repository.GetCommandById(id);
+            if (commandModelFromRepo == null)
+            {
+                return NotFound();
+            }
+
+            _mapper.Map(commandUpdateDto, commandModelFromRepo);
+            _repository.UpdateCommand(commandModelFromRepo);
             _repository.SaveChanges();
 
-            //return 을 ReadDto 포맷으로 전달이 필요할 경우
-            var commandReadDto = _mapper.Map<CommandReadDto>(commandModel);
+            return NoContent();
+        }
 
-            return CreatedAtRoute(nameof(GetCommandById), new { id = commandReadDto.id }, commandReadDto);
+        // PATCH api/command/{id}
+        [HttpPatch("{id}")]
+        public ActionResult ParialUpdateCommand(int id, JsonPatchDocument<CommandUpdateDto> patchDocument)
+        {
+            var commandModelFromRepo = _repository.GetCommandById(id);
+            if (commandModelFromRepo == null)
+            {
+                return NotFound();
+            }
+
+            var commandToPatch = _mapper.Map<CommandUpdateDto>(commandModelFromRepo);
+            patchDocument.ApplyTo(commandToPatch, ModelState);
+
+            if (!TryValidateModel(commandToPatch))
+            {
+                return ValidationProblem(ModelState);
+            }
+
+            _mapper.Map(commandToPatch, commandModelFromRepo);
+            _repository.UpdateCommand(commandModelFromRepo);
+            _repository.SaveChanges();
+
+            return NoContent();
+        }
+
+        // DELETE api/command/{id}
+        [HttpDelete("{id}")]
+        public ActionResult DeleteCommand(int id)
+        {
+            var commandModelFromRepo = _repository.GetCommandById(id);
+            if (commandModelFromRepo == null)
+            {
+                return NotFound();
+            }
+
+            _repository.DeleteCommand(commandModelFromRepo);
+            _repository.SaveChanges();
+
+            return NoContent();
         }
     }
 }
