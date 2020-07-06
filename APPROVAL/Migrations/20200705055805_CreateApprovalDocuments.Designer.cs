@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace APPROVAL.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200615073155_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20200705055805_CreateApprovalDocuments")]
+    partial class CreateApprovalDocuments
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -42,7 +42,46 @@ namespace APPROVAL.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("Commands");
+                    b.ToTable("Account");
+                });
+
+            modelBuilder.Entity("APPROVAL.Models.Document", b =>
+                {
+                    b.Property<int>("processId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("companyCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("companyName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("creator")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("creatorDepartment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("creatorId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("formId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ruleId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("status")
+                        .HasColumnType("int");
+
+                    b.Property<string>("subject")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("processId");
+
+                    b.ToTable("Document");
                 });
 #pragma warning restore 612, 618
         }

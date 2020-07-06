@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using APPROVAL.Configurations;
 using APPROVAL.Data;
+using APPROVAL.Services.Documents;
 using AutoMapper;
 using Elastic.Apm.NetCoreAll;
 using Microsoft.AspNetCore.Builder;
@@ -36,15 +38,18 @@ namespace APPROVAL
 
             //DB Connection 처리
             //Docker 환경
-            // services.AddDbContext<CommanderContext>(options => options.UseSqlServer(Configuration.GetConnectionString("CommanderConnection")));
+            services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SqlConnection")));
+
             //Smilegate 통테 환경
-            services.AddDbContext<CommanderContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ApprovalConnection")));
+            // services.AddDbContext<CommanderContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ApprovalConnection")));
 
             //Repository 연결
             services.AddScoped<ICommanderRepo, SqlCommanderRepo>();
+            services.AddScoped<IDocumentsService, DocumentsService>();
 
             //Mapper 설졍            
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            // services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddAutoMapper(typeof(Startup));
 
             //API Versioning
             services.AddApiVersioning(options =>
@@ -57,10 +62,25 @@ namespace APPROVAL
             // NewtonsoftJson 설정
             services.AddControllers().AddNewtonsoftJson(s => s.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver());
 
-
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Approval API", Version = "v1" });
+                c.SwaggerDoc("v1.0", new OpenApiInfo
+                {
+                    Version = "v1.0",
+                    Title = "Approval API 1.0",
+                    Description = "Approval API Version 1.0"
+                });
+
+                c.SwaggerDoc("v2.0", new OpenApiInfo
+                {
+                    Version = "v2.0",
+                    Title = "Approval API version 2.0",
+                    Description = "Approval API Version 2.0"
+                });
+
+                c.ResolveConflictingActions(a => a.First());
+                c.OperationFilter<RemoveVersionFromParameter>();
+                c.DocumentFilter<ReplaceVersionWithExactValueInPath>();
             });
         }
 
@@ -72,7 +92,7 @@ namespace APPROVAL
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
 
             app.UseRouting();
 
@@ -83,13 +103,15 @@ namespace APPROVAL
                 endpoints.MapControllers();
             });
 
-            app.UseAllElasticApm(Configuration);
+            app.UseApiVersioning();
+
+            // app.UseAllElasticApm(Configuration);
 
             app.UseSwagger();
-
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Approval API V1");
+                c.SwaggerEndpoint($"/swagger/v1.0/swagger.json", "Approval API v1.0");
+                c.SwaggerEndpoint($"/swagger/v2.0/swagger.json", "Approval API v2.0");
             });
         }
     }

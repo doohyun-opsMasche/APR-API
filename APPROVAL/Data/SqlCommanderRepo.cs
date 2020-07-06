@@ -1,15 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using APPROVAL.Models;
 
 namespace APPROVAL.Data
 {
     public class SqlCommanderRepo : ICommanderRepo
     {
-        private readonly CommanderContext _context;
+        private readonly DataContext _context;
 
-        public SqlCommanderRepo(CommanderContext context)
+        public SqlCommanderRepo(DataContext context)
         {
             _context = context;
         }
@@ -34,6 +35,11 @@ namespace APPROVAL.Data
             return _context.Commands.FirstOrDefault(p => p.id == id);
         }
 
+        public Command GetCommandBySearch(string searchWord)
+        {
+            return _context.Commands.FirstOrDefault(p => p.howTo == searchWord);
+        }
+
         public void UpdateCommand(Command cmd)
         {
             // Nothing
@@ -44,7 +50,7 @@ namespace APPROVAL.Data
 
             _context.Commands.Update(cmd);
         }
-        
+
         public void DeleteCommand(Command cmd)
         {
             if (cmd == null)
@@ -55,15 +61,9 @@ namespace APPROVAL.Data
             _context.Commands.Remove(cmd);
         }
 
-
-
-
-
         public bool SaveChanges()
         {
             return (_context.SaveChanges() >= 0);
         }
-
-
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using APPROVAL.Data;
 using APPROVAL.Dtos;
 using APPROVAL.Models;
@@ -9,9 +10,14 @@ using Microsoft.AspNetCore.Mvc;
 namespace APPROVAL.Controllers
 {
     //api commands
-    // [Route("api/[controller]")]
-    [Route("api/commands")]
+    /// <summary>
+    /// default version : 1.0
+    /// 각 버전별로 mapping 을 해야함
+    /// </summary>
     [ApiController]
+    [ApiVersion("2.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
+    [ApiExplorerSettings(GroupName = "v1.0")]
     public class CommandsController : ControllerBase
     {
         private readonly ICommanderRepo _repository;
@@ -38,7 +44,7 @@ namespace APPROVAL.Controllers
         }
 
         // Get api/commands
-        [HttpGet, MapToApiVersion("1.0")]
+        [HttpGet(Name = "GetAllCommands"), MapToApiVersion("1.0")]
         public ActionResult<IEnumerable<CommandReadDto>> GetAllCommands()
         {
             var commandItems = _repository.GetAllCommands();
