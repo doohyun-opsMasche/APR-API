@@ -62,7 +62,7 @@ namespace APPROVAL.Services.Documents
             }
             catch (Exception ex)
             {
-                serviceResponse.success = false;
+                serviceResponse.completed = false;
                 serviceResponse.message = ex.Message;
             }
 
@@ -82,7 +82,7 @@ namespace APPROVAL.Services.Documents
             }
             catch (Exception ex)
             {
-                serviceResponse.success = false;
+                serviceResponse.completed = false;
                 serviceResponse.message = ex.Message;
             }
 
