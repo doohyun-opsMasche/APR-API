@@ -44,7 +44,6 @@ namespace APPROVAL
             // services.AddDbContext<CommanderContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ApprovalConnection")));
 
             //Repository 연결
-            services.AddScoped<ICommanderRepo, SqlCommanderRepo>();
             services.AddScoped<IDocumentsService, DocumentsService>();
 
             //Mapper 설졍            
