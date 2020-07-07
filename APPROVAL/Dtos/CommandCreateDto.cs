@@ -13,7 +13,7 @@ namespace APPROVAL.Dtos
         [Required]
         public string line { get; set; }
 
-        [Required]
+        [Required] 
         public string platForm { get; set; }
     }
 }
