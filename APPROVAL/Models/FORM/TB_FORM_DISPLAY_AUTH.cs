@@ -1,4 +1,4 @@
-using System.ComponentModel.DataAnnotations;
+ï»¿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace APPROVAL.Models
@@ -23,13 +23,13 @@ namespace APPROVAL.Models
 
 
         [Column("FORM_DISPLAY_AUTH_RESOURCE")]
-        [StringLength(20, ErrorMessage = "8~20 ÀÚ¸® Á¤º¸¸¦ ÀÔ·ÂÇÏ¿© ÁÖ½Ê½Ã¿À.", MinimumLength = 8)]
-        [Required(ErrorMessage = "¸®¼Ò½º Á¤º¸¸¦ ÀÔ·ÂÇÏ¿© ÁÖ½Ê½Ã¿À")]
+        [StringLength(20, ErrorMessage = "8~20 ìë¦¬ ì •ë³´ë¥¼ ì…ë ¥í•˜ì—¬ ì£¼ì‹­ì‹œì˜¤.", MinimumLength = 8)]
+        [Required(ErrorMessage = "ë¦¬ì†ŒìŠ¤ ì •ë³´ë¥¼ ì…ë ¥í•˜ì—¬ ì£¼ì‹­ì‹œì˜¤")]
         public string formDisplayAuthResource { get; set; } // nvarchar(20), null
 
         [Column("FORM_DISPLAY_AUTH_TYPE")]
-        [StringLength(8, ErrorMessage = "8ÀÚ¸® Á¤º¸¸¦ ÀÔ·ÂÇÏ¿© ÁÖ½Ê½Ã¿À.", MinimumLength = 8)]
-        [Required(ErrorMessage = "¸®¼Ò½º Å¸ÀÔ Á¤º¸¸¦ ÀÔ·ÂÇÏ¿© ÁÖ½Ê½Ã¿À")]
+        [StringLength(8, ErrorMessage = "8ìë¦¬ ì •ë³´ë¥¼ ì…ë ¥í•˜ì—¬ ì£¼ì‹­ì‹œì˜¤.", MinimumLength = 8)]
+        [Required(ErrorMessage = "ë¦¬ì†ŒìŠ¤ íƒ€ì… ì •ë³´ë¥¼ ì…ë ¥í•˜ì—¬ ì£¼ì‹­ì‹œì˜¤")]
         public string formDisplayAuthType { get; set; } // nvarchar(9), null
 
     }
