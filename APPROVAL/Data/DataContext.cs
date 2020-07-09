@@ -18,8 +18,12 @@ namespace APPROVAL.Data
         {
             // 아래 테이블은 Key가 혼합키로 생성이 되어 있어 아래 설정을 해줘야 DB 마이그레이션 파일이
             // 정상 생성이 됩니다.
-            modelBuilder.Entity<FormDisplayAuth>()
-                        .HasKey(c => new { c.authId, c.formId });
+            modelBuilder.Entity<FormDisplayAuth>(entity =>
+            {
+                entity.HasKey(e => new { e.authId, e.formId })
+                    .HasName("PK_TB_FORM_DISPLAY_AUTH")
+                    .IsClustered(false);
+            });
         }
     }
 }

@@ -12,8 +12,6 @@ namespace APPROVAL.Models
         {
             this.type = "H";
             this.folderFlag = "F";
-
-            this.formDisplayAuths = new List<FormDisplayAuth>();
         }
 
         [Key]
@@ -43,7 +41,5 @@ namespace APPROVAL.Models
         [Column("FORM_FILE_FOLDER_FLAG")]
         [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         public string folderFlag { get; set; }
-
-        public ICollection<FormDisplayAuth> formDisplayAuths { get; set; }
     }
 }

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace APPROVAL.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200709064846_InitialCreat")]
-    partial class InitialCreat
+    [Migration("20200709073031_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -244,9 +244,6 @@ namespace APPROVAL.Migrations
                         .HasColumnName("FORM_DISPLAY_AUTH_FORM_ID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("FormFileid")
-                        .HasColumnType("int");
-
                     b.Property<string>("authResource")
                         .IsRequired()
                         .HasColumnName("FORM_DISPLAY_AUTH_RESOURCE")
@@ -259,9 +256,9 @@ namespace APPROVAL.Migrations
                         .HasColumnType("nvarchar(8)")
                         .HasMaxLength(8);
 
-                    b.HasKey("authId", "formId");
-
-                    b.HasIndex("FormFileid");
+                    b.HasKey("authId", "formId")
+                        .HasName("PK_TB_FORM_DISPLAY_AUTH")
+                        .HasAnnotation("SqlServer:Clustered", false);
 
                     b.HasIndex("formId");
 
@@ -361,10 +358,6 @@ namespace APPROVAL.Migrations
 
             modelBuilder.Entity("APPROVAL.Models.FormDisplayAuth", b =>
                 {
-                    b.HasOne("APPROVAL.Models.FormFile", null)
-                        .WithMany("formDisplayAuths")
-                        .HasForeignKey("FormFileid");
-
                     b.HasOne("APPROVAL.Models.Form", "form")
                         .WithMany("formDisplayAuths")
                         .HasForeignKey("formId")
