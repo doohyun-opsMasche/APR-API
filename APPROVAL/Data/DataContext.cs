@@ -7,7 +7,6 @@ namespace APPROVAL.Data
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
         public DbSet<Document> Documents { get; set; }
-        public DbSet<Command> Commands { get; set; }
         public DbSet<Approver> Approvers { get; set; }
     }
 }

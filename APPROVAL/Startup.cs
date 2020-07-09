@@ -25,7 +25,7 @@ namespace APPROVAL
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration, IWebHostEnvironment env)
+        public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }

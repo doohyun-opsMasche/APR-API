@@ -35,12 +35,8 @@ namespace APPROVAL.Models
         [Required(ErrorMessage = "파일 그룹의 버전을 입력하여 주십시오.")]
         public int? formFileGroupVersion { get; set; }
 
-        public List<TB_FORM_FILE> tbFormFiles { get; set; }
-
-        // 샘플 3
-        // [ForeignKey("formFileGroupId")]
-        // public List<TB_FORM_FILE> tbFormFiles { get; set; }
-        
+        public List<TB_FORM_FILE> tbFormFiles { get; set; } 
+               
         public List<TB_FORM> tbForms { get; set; }
     }
 }
