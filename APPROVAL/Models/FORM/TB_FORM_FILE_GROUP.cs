@@ -37,6 +37,10 @@ namespace APPROVAL.Models
 
         public List<TB_FORM_FILE> tbFormFiles { get; set; }
 
+        // 샘플 3
+        // [ForeignKey("formFileGroupId")]
+        // public List<TB_FORM_FILE> tbFormFiles { get; set; }
+        
         public List<TB_FORM> tbForms { get; set; }
     }
 }

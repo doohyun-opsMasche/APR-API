@@ -21,9 +21,23 @@ namespace APPROVAL.Models
         [Required(ErrorMessage = "파일 아이디를 입력하여 주십시오.")]
         public int? formFileId { get; set; }
 
-        [ForeignKey("FORM_FILE_GROUP_ID")]
+        // 샘플 1
+        [ForeignKey("TB_FORM_FILE_GROUP")]
         [Column("FORM_FILE_GROUP_ID")]
-        public TB_FORM_FILE_GROUP formFileGroupId { get; set; }
+        public int? formFileGroupId { get; set; }
+        public TB_FORM_FILE_GROUP tbFormFileGroup { get; set; }
+
+        // 샘플 2
+        // [Column("FORM_FILE_GROUP_ID")]
+        // public int? formFileGroupId { get; set; }
+
+        // [ForeignKey("formFileGroupId")]
+        // public TB_FORM_FILE_GROUP tbFormFileGroup { get; set; }
+
+        // 샘플 3
+        // public int? formFileGroupId { get; set; }
+        // public TB_FORM_FILE_GROUP tbFormFileGroup { get; set; }
+
 
         [Column("FORM_FILE_PATH")]
         [StringLength(300, ErrorMessage ="10~300 자리의 PATH 정보를 입력하여 주십시오", MinimumLength = 10)]
