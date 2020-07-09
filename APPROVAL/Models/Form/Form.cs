@@ -124,6 +124,6 @@ namespace APPROVAL.Models
         public string delegatePolicyId { get; set; }
 
 
-        public List<FormDisplayAuth> formDisplayAuths { get; set; }
+        public ICollection<FormDisplayAuth> formDisplayAuths { get; set; }
     }
 }
