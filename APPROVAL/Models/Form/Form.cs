@@ -37,7 +37,7 @@ namespace APPROVAL.Models
         public int? categoryId { get; set; }
 
         [ForeignKey("categoryId")]
-        public FromCategory formCategory { get; set; }
+        public FormCategory formCategory { get; set; }
 
         [Column("FORM_FILE_GROUP_ID")]
         [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
