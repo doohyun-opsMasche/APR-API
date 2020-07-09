@@ -21,17 +21,17 @@ namespace APPROVAL.Models
         public int id { get; set; }
 
         [Column("FORM_FILE_GROUP_NM")]
-        [StringLength(255, MinimumLength = 10, ErrorMessage = "RangeErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
+        [StringLength(255, MinimumLength = 10, ErrorMessageResourceName = "RangeErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         public string name { get; set; }
 
         [Column("FORM_FILE_GROUP_DISPLAY_NM")]
-        [StringLength(20, MinimumLength = 10, ErrorMessage = "RangeErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
+        [StringLength(20, MinimumLength = 10, ErrorMessageResourceName = "RangeErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         public string displayName { get; set; }
 
         [Column("FORM_FILE_GROUP_VERSION")]
-        [StringLength(300, MinimumLength = 10, ErrorMessage = "RangeErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
+        [StringLength(300, MinimumLength = 10, ErrorMessageResourceName = "RangeErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         public int version { get; set; }
 

@@ -28,13 +28,13 @@ namespace APPROVAL.Models
         public FormFileGroup formFileGroup { get; set; }
 
         [Column("FORM_FILE_PATH")]
-        [StringLength(300, MinimumLength = 10, ErrorMessage = "RangeErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
+        [StringLength(300, MinimumLength = 10, ErrorMessageResourceName = "RangeErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         public string path { get; set; }
 
 
         [Column("FORM_FILE_TYPE")]
-        [MaxLength(1, ErrorMessage = "FixedErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
+        [MaxLength(1, ErrorMessageResourceName = "FixedErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         public string type { get; set; }
 

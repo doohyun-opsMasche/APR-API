@@ -7,12 +7,12 @@ namespace APPROVAL.Models
     public class FormDisplayAuth
     {
         [Column("FORM_DISPLAY_AUTH_RESOURCE")]
-        [StringLength(20, MinimumLength = 8, ErrorMessage = "RangeErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
+        [StringLength(20, MinimumLength = 8, ErrorMessageResourceName = "RangeErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         public string authResource { get; set; } 
 
         [Column("FORM_DISPLAY_AUTH_TYPE")]
-        [StringLength(8, MinimumLength = 8, ErrorMessage = "FixedErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
+        [StringLength(8, MinimumLength = 8, ErrorMessageResourceName = "FixedErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         public string authType { get; set; } 
 

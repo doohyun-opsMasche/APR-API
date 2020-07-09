@@ -47,12 +47,12 @@ namespace APPROVAL.Models
         public FormFileGroup formFileGroup { get; set; }
 
         [Column("FORM_NM")]
-        [StringLength(30, MinimumLength = 1, ErrorMessage = "RangeErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
+        [StringLength(30, MinimumLength = 1, ErrorMessageResourceName = "RangeErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         public string name { get; set; }
 
         [Column("FORM_DESCRIPTION")]
-        [MaxLength(4000, ErrorMessage ="4000자까지만 입력이 가능 합니다.")]
+        [StringLength(4000, MinimumLength = 1, ErrorMessageResourceName = "RangeErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         public string description { get; set; }
 
         [Column("FORM_SORT")]
@@ -60,12 +60,12 @@ namespace APPROVAL.Models
         public int? sort { get; set; }
 
         [Column("USE_FLAG")]
-        [MaxLength(1, ErrorMessage = "FixedErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
+        [MaxLength(1, ErrorMessageResourceName = "FixedErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         public string useFlag { get; set; }
 
         [Column("DISPLAY_FLAG")]
-        [MaxLength(1, ErrorMessage = "FixedErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
+        [MaxLength(1, ErrorMessageResourceName = "FixedErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         public string displayFlag { get; set; }
 
@@ -75,12 +75,12 @@ namespace APPROVAL.Models
         public int delayDay { get; set; }
 
         [Column("FORM_DELAY_ALERT_TIME")]
-        [MaxLength(4)]
+        [StringLength(4, MinimumLength = 4, ErrorMessageResourceName = "FixedErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         public string delayTime { get; set; }
 
         [Column("FORM_LEGACY_FLAG")]
-        [MaxLength(1, ErrorMessage = "FixedErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
+        [MaxLength(1, ErrorMessageResourceName = "FixedErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         public string legacyFlag { get; set; }
 
@@ -91,32 +91,32 @@ namespace APPROVAL.Models
         public string legacyUrl { get; set; }
 
         [Column("FORM_DOCUMENT_NUMBER_FLAG")]
-        [MaxLength(1, ErrorMessage = "FixedErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
+        [MaxLength(1, ErrorMessageResourceName = "FixedErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         public string documentNumberFlag { get; set; }
 
         [Column("FORM_DOCUMENT_TRANSFER_FLAG")]
-        [MaxLength(1, ErrorMessage = "FixedErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
+        [MaxLength(1, ErrorMessageResourceName = "FixedErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         public string documentTransferFlag { get; set; }
 
         [Column("FORM_DIRECTION_FLAG")]
-        [MaxLength(1, ErrorMessage = "FixedErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
+        [MaxLength(1, ErrorMessageResourceName = "FixedErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         public string directionFlag { get; set; }
 
         [Column("FORM_APPROVAL_LINE_MODIFY_FLAG")]
-        [StringLength(2, ErrorMessage = "FixedErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
+        [StringLength(2, ErrorMessageResourceName = "FixedErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         public string approvalLineModifyFlag { get; set; }
 
         [Column("FORM_DEPARTMENT_BOX_READ_FLAG")]
-        [MaxLength(1, ErrorMessage = "FixedErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
+        [MaxLength(1, ErrorMessageResourceName = "FixedErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         public string departmentBoxReadFlag { get; set; }
 
         [Column("FORM_MANDATORY_FLAG")]
-        [MaxLength(1, ErrorMessage = "FixedErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
+        [MaxLength(1, ErrorMessageResourceName = "FixedErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         public string mandatoryFlag { get; set; }
 

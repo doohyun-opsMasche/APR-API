@@ -33,7 +33,7 @@ namespace APPROVAL.Models.Sample
 
         // 일반 컬럼 설정 샘플
         [Column("COLUMN_NAME_2")]
-        [StringLength(300, ErrorMessage = "ScopeErrorMessage", ErrorMessageResourceType = typeof(DefineMessage), MinimumLength = 10)]
+        [StringLength(300, ErrorMessageResourceName = "ScopeErrorMessage", ErrorMessageResourceType = typeof(DefineMessage), MinimumLength = 10)]
         [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         public string sampleCode { get; set; }
 

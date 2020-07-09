@@ -23,12 +23,12 @@ namespace APPROVAL.Models
         public int id { get; set; }
 
         [Column("FORM_CATEGORY_NM")]
-        [StringLength(30, MinimumLength = 1, ErrorMessage = "RangeErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
+        [StringLength(30, MinimumLength = 1, ErrorMessageResourceName = "RangeErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         public string name { get; set; }
 
         [Column("FORM_CATEGORY_LANGUAGE_FLAG")]
-        [StringLength(2, MinimumLength = 2, ErrorMessage = "FixedErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
+        [StringLength(2, MinimumLength = 2, ErrorMessageResourceName = "FixedErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         public string languageFlag { get; set; }
 
