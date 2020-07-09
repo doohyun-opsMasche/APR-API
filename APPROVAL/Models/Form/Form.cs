@@ -47,7 +47,7 @@ namespace APPROVAL.Models
         public FormFileGroup formFileGroup { get; set; }
 
         [Column("FORM_NM")]
-        [StringLength(30, MinimumLength = 1, ErrorMessage = "1~30 자리 정보를 입력하여 주십시오." )]
+        [StringLength(30, MinimumLength = 1, ErrorMessage = "RangeErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         public string name { get; set; }
 
