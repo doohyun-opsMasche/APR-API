@@ -22,7 +22,7 @@ namespace APPROVAL.Models
         public int? formFileId { get; set; }
 
         // 샘플 1
-        [ForeignKey("TB_FORM_FILE_GROUP")]
+        [ForeignKey("tbFormFileGroup")]
         [Column("FORM_FILE_GROUP_ID")]
         public int? formFileGroupId { get; set; }
         public TB_FORM_FILE_GROUP tbFormFileGroup { get; set; }
@@ -38,6 +38,9 @@ namespace APPROVAL.Models
         // public int? formFileGroupId { get; set; }
         // public TB_FORM_FILE_GROUP tbFormFileGroup { get; set; }
 
+        // 샘플 4
+        //public int formFileGroupId { get; set; }
+        //public TB_FORM_FILE_GROUP tbFormFileGroup { get; set; }
 
         [Column("FORM_FILE_PATH")]
         [StringLength(300, ErrorMessage ="10~300 자리의 PATH 정보를 입력하여 주십시오", MinimumLength = 10)]
