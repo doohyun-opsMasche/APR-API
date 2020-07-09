@@ -28,7 +28,7 @@ namespace APPROVAL.Models
         [Key]
         [Column("FORM_ID")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Required(ErrorMessage = "양식 ID가 필요 합니다.")]  // 변수로 설정을 할 생각이 있으면 전역으로 처리된 메시지 사용해야 함
+        [Required(ErrorMessage = "양식 ID가 필요 합니다.")] 
         public int? formId { get; set; }
 
         [ForeignKey("TB_FORM_FILE_GROUP")]
