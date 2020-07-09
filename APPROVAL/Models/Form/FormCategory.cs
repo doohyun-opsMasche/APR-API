@@ -5,9 +5,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace APPROVAL.Models
 {
     [Table("TB_FORM_CATEGORY")]
-    public class FromCategory : CommonColumn
+    public class FormCategory : CommonColumn
     {
-        public FromCategory(): base()
+        public FormCategory(): base()
         {
             this.name = "";
             this.languageFlag = "ko";
