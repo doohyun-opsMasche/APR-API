@@ -1,0 +1,23 @@
+dotnet ef migrations add <name>     // name으로 Migrations 정보 생성
+dotnet ef migrations remove         // 생성된 Migrations 정보 삭제
+dotnet ef database update           // migrations 된 정보를 기준으로 DB 생성
+dotnet ef database drop             // DB를 삭제, database 자체를 삭제
+
+dotnet run                          // 프로젝트 실행
+dotnet run --launch-profile 'IIS Express - ngkang'  // IIS Express - ngkang 로 된 Profile 실행
+
+// 환경 설정을 변경하는 방법
+1. cli 명령으로 변경
+set ASPNETCORE_ENVIRONMENT=ngkang
+
+2. .vscode\launch.json 내 정보 수정
+ "configurations": [
+        {
+             "env": {
+                "ASPNETCORE_ENVIRONMENT": "ngkang"
+            }
+        }
+ ]
+
+ // 위 정보를 설정해야 dotnet ef 명령 실행시 해당 appsettings.ngkang.json 정보를 기준으로 database를 저장 합니다.
+     
