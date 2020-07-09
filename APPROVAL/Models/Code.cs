@@ -5,19 +5,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace APPROVAL.Models
 {
-
-        // 샘플 코드
-        // 디폴크 값 선언
-        // public Code(Parameters)
-        // {
-        //     this.key = "";      // 초기 생성자 샘플
-        // }
-
-        // [Column("DB 칼럼명")]
-        // [StringLength()]
-        // [Required()]
-        // public string sample { get; set; }
-
     [Table("TB_COMMON_CODE")]
     public class Code
     {
