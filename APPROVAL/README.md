@@ -1,3 +1,8 @@
+# 프로젝트 시 공유사항
+1. branch 생성 : PJT_이니셜_채번
+2. push 방식 : [PJT_이니셜_채번] "간략한 push 사유"
+3. push 전 local branch 최신화
+
 # .net core 주요 CLI 정리
 <h2>.net core</h2>
 <p> 프로젝트 build
