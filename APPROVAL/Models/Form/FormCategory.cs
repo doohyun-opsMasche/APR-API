@@ -1,17 +1,19 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace APPROVAL.Models
 {
     [Table("TB_FORM_CATEGORY")]
-    public class FormCategory : CommonColumn
+    public class FormCategory
     {
-        public FormCategory(): base()
+        public FormCategory()
         {
             this.name = "";
             this.languageFlag = "ko";
             this.sort = 0;
+            this.insertDate = DateTime.Now;
 
             this.forms = new List<Form>();
         }
@@ -35,6 +37,10 @@ namespace APPROVAL.Models
         [Column("FORM_CATEGORY_SORT")]
         [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         public int? sort { get; set; }
+
+        [Column("INS_DATE")]
+        [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
+        public DateTime? insertDate { get; set; }
 
         public ICollection<Form> forms { get; set; }
     }

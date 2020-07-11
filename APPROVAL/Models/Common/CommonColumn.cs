@@ -4,18 +4,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace APPROVAL.Models
 {
-    public class CommonColumn
-    {
-        public CommonColumn()
-        {
-            insertDate = DateTime.Now;
-        }
-
-        [Column("INS_DATE")]
-        [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
-        public DateTime? insertDate { get; set; }
-    }
-
     /// <summary>
     /// Attribute 메시지 정의 클래스
     /// </summary>

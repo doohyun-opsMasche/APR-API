@@ -8,9 +8,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace APPROVAL.Models
 {
     [Table("TB_FORM")]
-    public class Form: CommonColumn
+    public class Form
     {
-        public Form(): base()
+        public Form()
         {
             this.documentNumberFlag = "Y";
             this.sort = 0;
@@ -22,6 +22,7 @@ namespace APPROVAL.Models
             this.legacyType = "LA";
             this.approvalLineModifyFlag = "YY";
             this.departmentBoxReadFlag = "Y";
+            this.insertDate = DateTime.Now;
 
             this.formDisplayAuths = new List<FormDisplayAuth>();
         }
@@ -32,19 +33,19 @@ namespace APPROVAL.Models
         [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         public int id { get; set; }
 
+        [ForeignKey("categoryId")]
+        public FormCategory formCategory { get; set; }
+
+        [ForeignKey("fileGroupId")]
+        public FormFileGroup formFileGroup { get; set; }
+
         [Column("FORM_CATEGORY_ID")]
         [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         public int? categoryId { get; set; }
 
-        [ForeignKey("categoryId")]
-        public FormCategory formCategory { get; set; }
-
         [Column("FORM_FILE_GROUP_ID")]
         [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         public int fileGroupId { get; set; }
-
-        [ForeignKey("fileGroupId")]
-        public FormFileGroup formFileGroup { get; set; }
 
         [Column("FORM_NM")]
         [StringLength(30, MinimumLength = 1, ErrorMessageResourceName = "RangeErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
@@ -123,6 +124,9 @@ namespace APPROVAL.Models
         [Column("FORM_DELEGATE_POLICY_ID")]
         public string delegatePolicyId { get; set; }
 
+        [Column("INS_DATE")]
+        [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
+        public DateTime? insertDate { get; set; }
 
         public ICollection<FormDisplayAuth> formDisplayAuths { get; set; }
     }

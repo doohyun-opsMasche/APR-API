@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace APPROVAL.Models
@@ -6,16 +7,10 @@ namespace APPROVAL.Models
     [Table("TB_FORM_DISPLAY_AUTH")]
     public class FormDisplayAuth
     {
-        [Column("FORM_DISPLAY_AUTH_RESOURCE")]
-        [StringLength(20, MinimumLength = 8, ErrorMessageResourceName = "RangeErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
-        [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
-        public string authResource { get; set; } 
-
-        [Column("FORM_DISPLAY_AUTH_TYPE")]
-        [StringLength(8, MinimumLength = 8, ErrorMessageResourceName = "FixedErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
-        [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
-        public string authType { get; set; } 
-
+        public FormDisplayAuth()
+        {
+            this.insertDate = DateTime.Now;
+        }
 
         [Key]
         [Column("FORM_DISPLAY_AUTH_FORM_ID", Order = 2)]
@@ -30,5 +25,19 @@ namespace APPROVAL.Models
 
         [ForeignKey("formId")]
         public Form form { get; set; }
+
+        [Column("FORM_DISPLAY_AUTH_RESOURCE")]
+        [StringLength(20, MinimumLength = 8, ErrorMessageResourceName = "RangeErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
+        [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
+        public string authResource { get; set; }
+
+        [Column("FORM_DISPLAY_AUTH_TYPE")]
+        [StringLength(8, MinimumLength = 8, ErrorMessageResourceName = "FixedErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
+        [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
+        public string authType { get; set; }
+
+        [Column("INS_DATE")]
+        [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
+        public DateTime? insertDate { get; set; }
     }
 }

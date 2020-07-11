@@ -1,15 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace APPROVAL.Models
 {
     [Table("TB_FORM_FILE_GROUP")]
-    public class FormFileGroup : CommonColumn
+    public class FormFileGroup
     {
-        public FormFileGroup() : base()
+        public FormFileGroup()
         {
             this.version = 1;
+            this.insertDate = DateTime.Now;
 
             this.formFiles = new List<FormFile>();
         }
@@ -34,6 +36,10 @@ namespace APPROVAL.Models
         [StringLength(300, MinimumLength = 10, ErrorMessageResourceName = "RangeErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
         public int version { get; set; }
+
+        [Column("INS_DATE")]
+        [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(DefineMessage))]
+        public DateTime? insertDate { get; set; }
 
         public ICollection<FormFile> formFiles { get; set; } 
                
