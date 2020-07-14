@@ -20,7 +20,7 @@ namespace APPROVAL.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add(FormFileGroupCreate group)
+        public IActionResult Add(FormFileGroup group)
         {
             return Ok(_service.Add(group));
         }

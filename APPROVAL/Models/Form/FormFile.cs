@@ -7,7 +7,7 @@ using System.Runtime.CompilerServices;
 namespace APPROVAL.Models
 {
     [Table("TB_FORM_FILE")]
-    public class FormFile : IModel
+    public class FormFile
     {
         public FormFile()
         {

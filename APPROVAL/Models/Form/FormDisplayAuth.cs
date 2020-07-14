@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace APPROVAL.Models
 {
     [Table("TB_FORM_DISPLAY_AUTH")]
-    public class FormDisplayAuth : IModel
+    public class FormDisplayAuth
     {
         public FormDisplayAuth()
         {

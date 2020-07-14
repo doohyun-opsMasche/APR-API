@@ -21,7 +21,7 @@ namespace APPROVAL.Services
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        public async Task<ServiceResponse<List<FormFileGroupCreate>>> Add(FormFileGroupCreate group)
+        public async Task<ServiceResponse<List<FormFileGroupCreate>>> Add(FormFileGroup group)
         {
             ServiceResponse<List<FormFileGroupCreate>> serviceResponse = new ServiceResponse<List<FormFileGroupCreate>>();
             FormFileGroup fileGroup = _mapper.Map<FormFileGroup>(group);
@@ -33,10 +33,9 @@ namespace APPROVAL.Services
             return serviceResponse;
         }
 
-        public async Task<List<FormFileGroupRead>> GetListAsync()
+        public async Task<List<FormFileGroup>> GetListAsync()
         {
-            List<FormFileGroup> groups = await _context.FormFileGroups.ToListAsync();
-            return groups.Select(c => _mapper.Map<FormFileGroupRead>(c)).ToList();
+            return await _context.FormFileGroups.ToListAsync();
         }
 
         public void Update(FormFileGroupCreate group)

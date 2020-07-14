@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace APPROVAL.Models
 {
     [Table("TB_FORM")]
-    public class Form : IModel
+    public class Form
     {
         public Form()
         {

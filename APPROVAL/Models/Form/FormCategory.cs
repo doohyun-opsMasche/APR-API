@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace APPROVAL.Models
 {
     [Table("TB_FORM_CATEGORY")]
-    public class FormCategory : IModel
+    public class FormCategory
     {
         public FormCategory()
         {
