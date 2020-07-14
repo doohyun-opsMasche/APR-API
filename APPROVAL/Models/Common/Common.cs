@@ -7,7 +7,7 @@ namespace APPROVAL.Models
     /// <summary>
     /// Attribute 메시지 정의 클래스
     /// </summary>
-    public class DefineMessage
+    public class Define
     {
         public static string ErrorMessage
         {

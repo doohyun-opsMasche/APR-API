@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace APPROVAL.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200709073031_InitialMigration")]
+    [Migration("20200714045123_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -90,7 +90,7 @@ namespace APPROVAL.Migrations
                     b.Property<string>("approvalLineModifyFlag")
                         .IsRequired()
                         .HasColumnName("FORM_APPROVAL_LINE_MODIFY_FLAG")
-                        .HasColumnType("nvarchar(2)")
+                        .HasColumnType("char(2)")
                         .HasMaxLength(2);
 
                     b.Property<int?>("categoryId")
@@ -115,7 +115,7 @@ namespace APPROVAL.Migrations
                     b.Property<string>("departmentBoxReadFlag")
                         .IsRequired()
                         .HasColumnName("FORM_DEPARTMENT_BOX_READ_FLAG")
-                        .HasColumnType("nvarchar(1)")
+                        .HasColumnType("char(1)")
                         .HasMaxLength(1);
 
                     b.Property<string>("description")
@@ -126,35 +126,40 @@ namespace APPROVAL.Migrations
                     b.Property<string>("directionFlag")
                         .IsRequired()
                         .HasColumnName("FORM_DIRECTION_FLAG")
-                        .HasColumnType("nvarchar(1)")
+                        .HasColumnType("char(1)")
                         .HasMaxLength(1);
 
                     b.Property<string>("displayFlag")
                         .IsRequired()
                         .HasColumnName("DISPLAY_FLAG")
-                        .HasColumnType("nvarchar(1)")
+                        .HasColumnType("char(1)")
                         .HasMaxLength(1);
 
                     b.Property<string>("documentNumberFlag")
                         .IsRequired()
                         .HasColumnName("FORM_DOCUMENT_NUMBER_FLAG")
-                        .HasColumnType("nvarchar(1)")
+                        .HasColumnType("char(1)")
                         .HasMaxLength(1);
 
                     b.Property<string>("documentTransferFlag")
                         .IsRequired()
                         .HasColumnName("FORM_DOCUMENT_TRANSFER_FLAG")
-                        .HasColumnType("nvarchar(1)")
+                        .HasColumnType("char(1)")
                         .HasMaxLength(1);
 
                     b.Property<int>("fileGroupId")
                         .HasColumnName("FORM_FILE_GROUP_ID")
                         .HasColumnType("int");
 
+                    b.Property<DateTime?>("insertDate")
+                        .IsRequired()
+                        .HasColumnName("INS_DATE")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("legacyFlag")
                         .IsRequired()
                         .HasColumnName("FORM_LEGACY_FLAG")
-                        .HasColumnType("nvarchar(1)")
+                        .HasColumnType("char(1)")
                         .HasMaxLength(1);
 
                     b.Property<string>("legacyType")
@@ -168,7 +173,7 @@ namespace APPROVAL.Migrations
                     b.Property<string>("mandatoryFlag")
                         .IsRequired()
                         .HasColumnName("FORM_MANDATORY_FLAG")
-                        .HasColumnType("nvarchar(1)")
+                        .HasColumnType("char(1)")
                         .HasMaxLength(1);
 
                     b.Property<string>("name")
@@ -185,7 +190,7 @@ namespace APPROVAL.Migrations
                     b.Property<string>("useFlag")
                         .IsRequired()
                         .HasColumnName("USE_FLAG")
-                        .HasColumnType("nvarchar(1)")
+                        .HasColumnType("char(1)")
                         .HasMaxLength(1);
 
                     b.HasKey("id");
@@ -213,7 +218,7 @@ namespace APPROVAL.Migrations
                     b.Property<string>("languageFlag")
                         .IsRequired()
                         .HasColumnName("FORM_CATEGORY_LANGUAGE_FLAG")
-                        .HasColumnType("nvarchar(2)")
+                        .HasColumnType("char(2)")
                         .HasMaxLength(2);
 
                     b.Property<string>("name")
@@ -256,6 +261,11 @@ namespace APPROVAL.Migrations
                         .HasColumnType("nvarchar(8)")
                         .HasMaxLength(8);
 
+                    b.Property<DateTime?>("insertDate")
+                        .IsRequired()
+                        .HasColumnName("INS_DATE")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("authId", "formId")
                         .HasName("PK_TB_FORM_DISPLAY_AUTH")
                         .HasAnnotation("SqlServer:Clustered", false);
@@ -276,7 +286,8 @@ namespace APPROVAL.Migrations
                     b.Property<string>("folderFlag")
                         .IsRequired()
                         .HasColumnName("FORM_FILE_FOLDER_FLAG")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("char(1)")
+                        .HasMaxLength(1);
 
                     b.Property<int>("groupId")
                         .HasColumnName("FORM_FILE_GROUP_ID")
@@ -325,16 +336,16 @@ namespace APPROVAL.Migrations
                         .HasColumnName("INS_DATE")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("level")
+                        .HasColumnName("FORM_FILE_GROUP_LEVEL")
+                        .HasColumnType("int")
+                        .HasMaxLength(300);
+
                     b.Property<string>("name")
                         .IsRequired()
                         .HasColumnName("FORM_FILE_GROUP_NM")
                         .HasColumnType("nvarchar(255)")
                         .HasMaxLength(255);
-
-                    b.Property<int>("version")
-                        .HasColumnName("FORM_FILE_GROUP_VERSION")
-                        .HasColumnType("int")
-                        .HasMaxLength(300);
 
                     b.HasKey("id");
 

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using APPROVAL.Configurations;
 using APPROVAL.Data;
+using APPROVAL.Models;
+using APPROVAL.Services;
 using APPROVAL.Services.Documents;
 using AutoMapper;
 using Elastic.Apm.NetCoreAll;
@@ -45,6 +47,8 @@ namespace APPROVAL
 
             //Repository 연결
             services.AddScoped<IDocumentsService, DocumentsService>();
+            services.AddScoped<IFormService, FormService>();
+            services.AddScoped<IFormFileGroupService, FormFileGroupService>();
 
             //Mapper 설졍            
             // services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

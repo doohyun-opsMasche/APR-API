@@ -48,10 +48,10 @@ namespace APPROVAL.Migrations
                 {
                     FORM_CATEGORY_ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    INS_DATE = table.Column<DateTime>(nullable: false),
                     FORM_CATEGORY_NM = table.Column<string>(maxLength: 30, nullable: false),
-                    FORM_CATEGORY_LANGUAGE_FLAG = table.Column<string>(maxLength: 2, nullable: false),
-                    FORM_CATEGORY_SORT = table.Column<int>(nullable: false)
+                    FORM_CATEGORY_LANGUAGE_FLAG = table.Column<string>(type: "char(2)", maxLength: 2, nullable: false),
+                    FORM_CATEGORY_SORT = table.Column<int>(nullable: false),
+                    INS_DATE = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -64,10 +64,10 @@ namespace APPROVAL.Migrations
                 {
                     FORM_FILE_GROUP_ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    INS_DATE = table.Column<DateTime>(nullable: false),
                     FORM_FILE_GROUP_NM = table.Column<string>(maxLength: 255, nullable: false),
                     FORM_FILE_GROUP_DISPLAY_NM = table.Column<string>(maxLength: 20, nullable: false),
-                    FORM_FILE_GROUP_VERSION = table.Column<int>(maxLength: 300, nullable: false)
+                    FORM_FILE_GROUP_LEVEL = table.Column<int>(maxLength: 300, nullable: false),
+                    INS_DATE = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -85,20 +85,21 @@ namespace APPROVAL.Migrations
                     FORM_NM = table.Column<string>(maxLength: 30, nullable: false),
                     FORM_DESCRIPTION = table.Column<string>(maxLength: 4000, nullable: true),
                     FORM_SORT = table.Column<int>(nullable: false),
-                    USE_FLAG = table.Column<string>(maxLength: 1, nullable: false),
-                    DISPLAY_FLAG = table.Column<string>(maxLength: 1, nullable: false),
+                    USE_FLAG = table.Column<string>(type: "char(1)", maxLength: 1, nullable: false),
+                    DISPLAY_FLAG = table.Column<string>(type: "char(1)", maxLength: 1, nullable: false),
                     FORM_DELAY_ALERT_DAY = table.Column<int>(nullable: false),
                     FORM_DELAY_ALERT_TIME = table.Column<string>(maxLength: 4, nullable: false),
-                    FORM_LEGACY_FLAG = table.Column<string>(maxLength: 1, nullable: false),
+                    FORM_LEGACY_FLAG = table.Column<string>(type: "char(1)", maxLength: 1, nullable: false),
                     FORM_LEGACY_TYPE = table.Column<string>(nullable: true),
                     FORM_LEGACY_URL = table.Column<string>(nullable: true),
-                    FORM_DOCUMENT_NUMBER_FLAG = table.Column<string>(maxLength: 1, nullable: false),
-                    FORM_DOCUMENT_TRANSFER_FLAG = table.Column<string>(maxLength: 1, nullable: false),
-                    FORM_DIRECTION_FLAG = table.Column<string>(maxLength: 1, nullable: false),
-                    FORM_APPROVAL_LINE_MODIFY_FLAG = table.Column<string>(maxLength: 2, nullable: false),
-                    FORM_DEPARTMENT_BOX_READ_FLAG = table.Column<string>(maxLength: 1, nullable: false),
-                    FORM_MANDATORY_FLAG = table.Column<string>(maxLength: 1, nullable: false),
-                    FORM_DELEGATE_POLICY_ID = table.Column<string>(nullable: true)
+                    FORM_DOCUMENT_NUMBER_FLAG = table.Column<string>(type: "char(1)", maxLength: 1, nullable: false),
+                    FORM_DOCUMENT_TRANSFER_FLAG = table.Column<string>(type: "char(1)", maxLength: 1, nullable: false),
+                    FORM_DIRECTION_FLAG = table.Column<string>(type: "char(1)", maxLength: 1, nullable: false),
+                    FORM_APPROVAL_LINE_MODIFY_FLAG = table.Column<string>(type: "char(2)", maxLength: 2, nullable: false),
+                    FORM_DEPARTMENT_BOX_READ_FLAG = table.Column<string>(type: "char(1)", maxLength: 1, nullable: false),
+                    FORM_MANDATORY_FLAG = table.Column<string>(type: "char(1)", maxLength: 1, nullable: false),
+                    FORM_DELEGATE_POLICY_ID = table.Column<string>(nullable: true),
+                    INS_DATE = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -123,11 +124,11 @@ namespace APPROVAL.Migrations
                 {
                     FORM_FILE_ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    INS_DATE = table.Column<DateTime>(nullable: false),
                     FORM_FILE_GROUP_ID = table.Column<int>(nullable: false),
                     FORM_FILE_PATH = table.Column<string>(maxLength: 300, nullable: false),
                     FORM_FILE_TYPE = table.Column<string>(maxLength: 1, nullable: false),
-                    FORM_FILE_FOLDER_FLAG = table.Column<string>(nullable: false)
+                    FORM_FILE_FOLDER_FLAG = table.Column<string>(type: "char(1)", maxLength: 1, nullable: false),
+                    INS_DATE = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -148,7 +149,8 @@ namespace APPROVAL.Migrations
                     FORM_DISPLAY_AUTH_ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FORM_DISPLAY_AUTH_RESOURCE = table.Column<string>(maxLength: 20, nullable: false),
-                    FORM_DISPLAY_AUTH_TYPE = table.Column<string>(maxLength: 8, nullable: false)
+                    FORM_DISPLAY_AUTH_TYPE = table.Column<string>(maxLength: 8, nullable: false),
+                    INS_DATE = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
