@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "KELhms2XvkFWsms3dKxxoTxWT55A+UL8rBNwLQDBSpmejYyEVlxVM67Wsv0yI0q2jvwyxlC7OlJ1MLzC2dpYhQ==",
+  "dgSpecHash": "UvlGywbUiVt73uY03R8fjQyFIY/oLTew7XeqijoXzSfJOKABIK3Sd5Vw7imlRnpatXYB3WYSYzbbUhYmEYGiJg==",
   "success": true,
   "projectFilePath": "D:\\APR-API\\APPROVAL\\APPROVAL.csproj",
   "expectedPackageFiles": [
@@ -57,6 +57,7 @@
     "C:\\Users\\es-namgukim\\.nuget\\packages\\mysqlconnector\\0.61.0\\mysqlconnector.0.61.0.nupkg.sha512",
     "C:\\Users\\es-namgukim\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
     "C:\\Users\\es-namgukim\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512",
+    "C:\\Users\\es-namgukim\\.nuget\\packages\\polly\\7.2.1\\polly.7.2.1.nupkg.sha512",
     "C:\\Users\\es-namgukim\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\3.1.1\\pomelo.entityframeworkcore.mysql.3.1.1.nupkg.sha512",
     "C:\\Users\\es-namgukim\\.nuget\\packages\\pomelo.jsonobject\\2.2.1\\pomelo.jsonobject.2.2.1.nupkg.sha512",
     "C:\\Users\\es-namgukim\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
