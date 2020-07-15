@@ -13,29 +13,33 @@ namespace APPROVAL.Services
     public class FormFileGroupService : IFormFileGroupService
     {
         private readonly IMapper _mapper;
-        private readonly DataContext _context;
+        private readonly MariaContext _context;
 
-        public FormFileGroupService(IMapper mapper, DataContext context)
+        public FormFileGroupService(IMapper mapper, MariaContext context)
         {
             _mapper = mapper;
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        public async Task<ServiceResponse<List<FormFileGroupCreate>>> Add(FormFileGroup group)
+        public async Task<ServiceResponse<List<FormFileGroupRead>>> Add(FormFileGroupCreate group)
         {
-            ServiceResponse<List<FormFileGroupCreate>> serviceResponse = new ServiceResponse<List<FormFileGroupCreate>>();
+            ServiceResponse<List<FormFileGroupRead>> serviceResponse = new ServiceResponse<List<FormFileGroupRead>>();
             FormFileGroup fileGroup = _mapper.Map<FormFileGroup>(group);
             await _context.FormFileGroups.AddAsync(fileGroup);
             await _context.SaveChangesAsync();
 
-            serviceResponse.data = (_context.Documents.Select(c => _mapper.Map<FormFileGroupCreate>(c))).ToList();
+            serviceResponse.data = (_context.Documents.Select(c => _mapper.Map<FormFileGroupRead>(c))).ToList();
 
             return serviceResponse;
         }
 
-        public async Task<List<FormFileGroup>> GetListAsync()
+        public async Task<ServiceResponse<List<FormFileGroupRead>>> GetListAsync()
         {
-            return await _context.FormFileGroups.ToListAsync();
+            ServiceResponse<List<FormFileGroupRead>> serviceResponse = new ServiceResponse<List<FormFileGroupRead>>();
+            List<FormFileGroup> fileGroups = await _context.FormFileGroups.ToListAsync();
+            serviceResponse.data = (fileGroups.Select(c => _mapper.Map<FormFileGroupRead>(c))).ToList();
+
+            return serviceResponse;
         }
 
         public void Update(FormFileGroupCreate group)
