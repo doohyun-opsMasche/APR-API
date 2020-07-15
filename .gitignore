@@ -1,3 +1,20 @@
 
 APPROVAL/.vs/APPROVAL/v16/.suo
 APPROVAL/.vs/APPROVAL/DesignTimeBuild/.dtbcache.v2
+APPROVAL/bin/Debug/netcoreapp3.1/APPROVAL.deps.json
+APPROVAL/bin/Debug/netcoreapp3.1/APPROVAL.dll
+APPROVAL/bin/Debug/netcoreapp3.1/APPROVAL.pdb
+APPROVAL/bin/Debug/netcoreapp3.1/APPROVAL.runtimeconfig.dev.json
+APPROVAL/bin/Debug/netcoreapp3.1/appsettings.Development.json
+APPROVAL/bin/Debug/netcoreapp3.1/appsettings.json
+APPROVAL/obj/APPROVAL.csproj.nuget.dgspec.json
+APPROVAL/obj/APPROVAL.csproj.nuget.g.props
+APPROVAL/obj/Debug/netcoreapp3.1/APPROVAL.assets.cache
+APPROVAL/obj/Debug/netcoreapp3.1/APPROVAL.csproj.CoreCompileInputs.cache
+APPROVAL/obj/Debug/netcoreapp3.1/APPROVAL.csproj.FileListAbsolute.txt
+APPROVAL/obj/Debug/netcoreapp3.1/APPROVAL.csprojAssemblyReference.cache
+APPROVAL/obj/Debug/netcoreapp3.1/APPROVAL.dll
+APPROVAL/obj/Debug/netcoreapp3.1/APPROVAL.MvcApplicationPartsAssemblyInfo.cs
+APPROVAL/obj/Debug/netcoreapp3.1/APPROVAL.pdb
+APPROVAL/obj/project.assets.json
+APPROVAL/obj/project.nuget.cache

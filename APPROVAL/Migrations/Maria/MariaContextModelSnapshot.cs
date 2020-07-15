@@ -3,37 +3,33 @@ using System;
 using APPROVAL.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace APPROVAL.Migrations
+namespace APPROVAL.Migrations.Maria
 {
-    [DbContext(typeof(DataContext))]
-    [Migration("20200714045123_InitialMigration")]
-    partial class InitialMigration
+    [DbContext(typeof(MariaContext))]
+    partial class MariaContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.5")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("APPROVAL.Models.Approver", b =>
                 {
                     b.Property<string>("id")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<byte[]>("passwordSalt")
-                        .HasColumnType("varbinary(max)");
+                        .HasColumnType("longblob");
 
                     b.Property<byte[]>("passwordhash")
-                        .HasColumnType("varbinary(max)");
+                        .HasColumnType("longblob");
 
                     b.Property<string>("userName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.HasKey("id");
 
@@ -44,23 +40,22 @@ namespace APPROVAL.Migrations
                 {
                     b.Property<int>("processId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
                     b.Property<string>("companyCode")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("companyName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("creator")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("creatorDepartment")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("creatorId")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<int>("formId")
                         .HasColumnType("int");
@@ -72,7 +67,7 @@ namespace APPROVAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("subject")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.HasKey("processId");
 
@@ -84,8 +79,7 @@ namespace APPROVAL.Migrations
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("FORM_ID")
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
                     b.Property<string>("approvalLineModifyFlag")
                         .IsRequired()
@@ -105,12 +99,12 @@ namespace APPROVAL.Migrations
                     b.Property<string>("delayTime")
                         .IsRequired()
                         .HasColumnName("FORM_DELAY_ALERT_TIME")
-                        .HasColumnType("nvarchar(4)")
+                        .HasColumnType("varchar(4)")
                         .HasMaxLength(4);
 
                     b.Property<string>("delegatePolicyId")
                         .HasColumnName("FORM_DELEGATE_POLICY_ID")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("departmentBoxReadFlag")
                         .IsRequired()
@@ -120,7 +114,7 @@ namespace APPROVAL.Migrations
 
                     b.Property<string>("description")
                         .HasColumnName("FORM_DESCRIPTION")
-                        .HasColumnType("nvarchar(4000)")
+                        .HasColumnType("longtext")
                         .HasMaxLength(4000);
 
                     b.Property<string>("directionFlag")
@@ -154,7 +148,7 @@ namespace APPROVAL.Migrations
                     b.Property<DateTime?>("insertDate")
                         .IsRequired()
                         .HasColumnName("INS_DATE")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("legacyFlag")
                         .IsRequired()
@@ -164,11 +158,11 @@ namespace APPROVAL.Migrations
 
                     b.Property<string>("legacyType")
                         .HasColumnName("FORM_LEGACY_TYPE")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("legacyUrl")
                         .HasColumnName("FORM_LEGACY_URL")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("mandatoryFlag")
                         .IsRequired()
@@ -179,7 +173,7 @@ namespace APPROVAL.Migrations
                     b.Property<string>("name")
                         .IsRequired()
                         .HasColumnName("FORM_NM")
-                        .HasColumnType("nvarchar(30)")
+                        .HasColumnType("varchar(30)")
                         .HasMaxLength(30);
 
                     b.Property<int?>("sort")
@@ -207,13 +201,12 @@ namespace APPROVAL.Migrations
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("FORM_CATEGORY_ID")
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("insertDate")
                         .IsRequired()
                         .HasColumnName("INS_DATE")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("languageFlag")
                         .IsRequired()
@@ -224,7 +217,7 @@ namespace APPROVAL.Migrations
                     b.Property<string>("name")
                         .IsRequired()
                         .HasColumnName("FORM_CATEGORY_NM")
-                        .HasColumnType("nvarchar(30)")
+                        .HasColumnType("varchar(30)")
                         .HasMaxLength(30);
 
                     b.Property<int?>("sort")
@@ -242,8 +235,7 @@ namespace APPROVAL.Migrations
                     b.Property<int?>("authId")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("FORM_DISPLAY_AUTH_ID")
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
                     b.Property<int?>("formId")
                         .HasColumnName("FORM_DISPLAY_AUTH_FORM_ID")
@@ -252,19 +244,19 @@ namespace APPROVAL.Migrations
                     b.Property<string>("authResource")
                         .IsRequired()
                         .HasColumnName("FORM_DISPLAY_AUTH_RESOURCE")
-                        .HasColumnType("nvarchar(20)")
+                        .HasColumnType("varchar(20)")
                         .HasMaxLength(20);
 
                     b.Property<string>("authType")
                         .IsRequired()
                         .HasColumnName("FORM_DISPLAY_AUTH_TYPE")
-                        .HasColumnType("nvarchar(8)")
+                        .HasColumnType("varchar(8)")
                         .HasMaxLength(8);
 
                     b.Property<DateTime?>("insertDate")
                         .IsRequired()
                         .HasColumnName("INS_DATE")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime(6)");
 
                     b.HasKey("authId", "formId")
                         .HasName("PK_TB_FORM_DISPLAY_AUTH")
@@ -280,8 +272,7 @@ namespace APPROVAL.Migrations
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("FORM_FILE_ID")
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
                     b.Property<string>("folderFlag")
                         .IsRequired()
@@ -296,18 +287,18 @@ namespace APPROVAL.Migrations
                     b.Property<DateTime?>("insertDate")
                         .IsRequired()
                         .HasColumnName("INS_DATE")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("path")
                         .IsRequired()
                         .HasColumnName("FORM_FILE_PATH")
-                        .HasColumnType("nvarchar(300)")
+                        .HasColumnType("varchar(300)")
                         .HasMaxLength(300);
 
                     b.Property<string>("type")
                         .IsRequired()
                         .HasColumnName("FORM_FILE_TYPE")
-                        .HasColumnType("nvarchar(1)")
+                        .HasColumnType("varchar(1)")
                         .HasMaxLength(1);
 
                     b.HasKey("id");
@@ -322,19 +313,18 @@ namespace APPROVAL.Migrations
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("FORM_FILE_GROUP_ID")
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
                     b.Property<string>("displayName")
                         .IsRequired()
                         .HasColumnName("FORM_FILE_GROUP_DISPLAY_NM")
-                        .HasColumnType("nvarchar(20)")
+                        .HasColumnType("varchar(20)")
                         .HasMaxLength(20);
 
                     b.Property<DateTime?>("insertDate")
                         .IsRequired()
                         .HasColumnName("INS_DATE")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<int>("level")
                         .HasColumnName("FORM_FILE_GROUP_LEVEL")
@@ -344,7 +334,7 @@ namespace APPROVAL.Migrations
                     b.Property<string>("name")
                         .IsRequired()
                         .HasColumnName("FORM_FILE_GROUP_NM")
-                        .HasColumnType("nvarchar(255)")
+                        .HasColumnType("varchar(255)")
                         .HasMaxLength(255);
 
                     b.HasKey("id");

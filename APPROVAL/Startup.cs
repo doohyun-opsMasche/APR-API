@@ -21,6 +21,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json.Serialization;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
+using Pomelo.EntityFrameworkCore.MySql.Storage;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace APPROVAL
@@ -41,6 +43,17 @@ namespace APPROVAL
             //DB Connection 처리
             //Docker 환경
             services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ApprovalConnection")));
+
+            //Maria DB Connection 처리
+            services.AddDbContext<MariaContext>(options =>
+            {
+                options.UseMySql(Configuration.GetConnectionString("MariaConnection"),
+                    optionsBuilder =>
+                    {
+                        optionsBuilder.CharSet(CharSet.Utf8).CharSetBehavior(CharSetBehavior.AppendToAllAnsiColumns);
+                    }
+                );
+            });
 
             //Smilegate 통테 환경
             // services.AddDbContext<CommanderContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ApprovalConnection")));
