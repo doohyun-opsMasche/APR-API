@@ -40,10 +40,13 @@ namespace APPROVAL
         public void ConfigureServices(IServiceCollection services)
         {
 
+            #region MSSQL DB 연결
             //DB Connection 처리
             //Docker 환경
             services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ApprovalConnection")));
+            #endregion 
 
+            #region Maria DB 연결
             //Maria DB Connection 처리
             services.AddDbContext<MariaContext>(options =>
             {
@@ -54,6 +57,7 @@ namespace APPROVAL
                     }
                 );
             });
+            #endregion 
 
             //Smilegate 통테 환경
             // services.AddDbContext<CommanderContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ApprovalConnection")));
