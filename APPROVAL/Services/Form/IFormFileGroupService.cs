@@ -7,8 +7,8 @@ namespace APPROVAL.Services
 {
     public interface IFormFileGroupService
     {
-        Task<ServiceResponse<List<FormFileGroupCreate>>> Add(FormFileGroup group);
+        Task<ServiceResponse<List<FormFileGroupRead>>> Add(FormFileGroupCreate group);
         void Update(FormFileGroupCreate group);
-        Task<List<FormFileGroup>> GetListAsync();
+        Task<ServiceResponse<List<FormFileGroupRead>>> GetListAsync();
     }
 }
