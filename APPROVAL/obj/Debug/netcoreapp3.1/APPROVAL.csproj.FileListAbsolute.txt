@@ -243,3 +243,13 @@ D:\APR-API\APPROVAL\bin\Debug\netcoreapp3.1\Polly.dll
 D:\APR-API\APPROVAL\obj\Debug\netcoreapp3.1\APPROVAL.csproj.CoreCompileInputs.cache
 D:\APR-API\APPROVAL\obj\Debug\netcoreapp3.1\APPROVAL.MvcApplicationPartsAssemblyInfo.cs
 D:\APR-API\APPROVAL\obj\Debug\netcoreapp3.1\APPROVAL.MvcApplicationPartsAssemblyInfo.cache
+D:\APR-API\APPROVAL\bin\Debug\netcoreapp3.1\en\APPROVAL.resources.dll
+D:\APR-API\APPROVAL\bin\Debug\netcoreapp3.1\ko\APPROVAL.resources.dll
+D:\APR-API\APPROVAL\bin\Debug\netcoreapp3.1\zh\APPROVAL.resources.dll
+D:\APR-API\APPROVAL\obj\Debug\netcoreapp3.1\APPROVAL.csproj.GenerateResource.cache
+D:\APR-API\APPROVAL\obj\Debug\netcoreapp3.1\en\APPROVAL.resources.dll
+D:\APR-API\APPROVAL\obj\Debug\netcoreapp3.1\ko\APPROVAL.resources.dll
+D:\APR-API\APPROVAL\obj\Debug\netcoreapp3.1\zh\APPROVAL.resources.dll
+D:\APR-API\APPROVAL\obj\Debug\netcoreapp3.1\APPROVAL.Resources.DefaultResource.en.resources
+D:\APR-API\APPROVAL\obj\Debug\netcoreapp3.1\APPROVAL.Resources.DefaultResource.ko.resources
+D:\APR-API\APPROVAL\obj\Debug\netcoreapp3.1\APPROVAL.Resources.DefaultResource.zh.resources

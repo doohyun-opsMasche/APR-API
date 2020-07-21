@@ -308,6 +308,17 @@
         "runtime": {
           "APPROVAL.dll": {}
         },
+        "resources": {
+          "en/APPROVAL.resources.dll": {
+            "locale": "en"
+          },
+          "ko/APPROVAL.resources.dll": {
+            "locale": "ko"
+          },
+          "zh/APPROVAL.resources.dll": {
+            "locale": "zh"
+          }
+        },
         "compile": {
           "APPROVAL.dll": {}
         }

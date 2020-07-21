@@ -13,7 +13,10 @@ namespace APPROVAL.Controllers
     public class FormController : ControllerBase
     {
         private readonly IFormService _service;
-        public FormController(IFormService service)
+       
+        public FormController(
+            IFormService service
+            )
         {
             _service = service;
         }
@@ -41,7 +44,7 @@ namespace APPROVAL.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get([FromQuery]Form form)
+        public async Task<IActionResult> Get([FromQuery] Form form)
         {
             return Ok(await _service.GetListAsync(form));
         }
