@@ -25,6 +25,7 @@ namespace APPROVAL.Models
             this.insertDate = DateTime.Now;
 
             this.formDisplayAuths = new List<FormDisplayAuth>();
+            this.processInstances = new List<ProcessInstance>();
         }
 
         [Key]
@@ -129,5 +130,6 @@ namespace APPROVAL.Models
         public DateTime? insertDate { get; set; }
 
         public ICollection<FormDisplayAuth> formDisplayAuths { get; set; }
+        public ICollection<ProcessInstance> processInstances { get; set; }
     }
 }

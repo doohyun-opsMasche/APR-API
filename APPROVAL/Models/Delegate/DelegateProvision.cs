@@ -17,6 +17,7 @@ namespace APPROVAL.Models
 
             this.forms = new List<Form>();
             this.delegateProvisionLines = new List<DelegateProvisionLine>();
+            this.processInstances = new List<ProcessInstance>();
         }
 
         #region 테이블 컬럼 구조
@@ -79,5 +80,7 @@ namespace APPROVAL.Models
         public ICollection<Form> forms { get; set; }
 
         public ICollection<DelegateProvisionLine> delegateProvisionLines { get; set; }
+
+        public ICollection<ProcessInstance> processInstances { get; set; }
     }
 }
