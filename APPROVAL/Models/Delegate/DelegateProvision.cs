@@ -57,10 +57,10 @@ namespace APPROVAL.Models
         [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(Define))]
         public string name { get; set; }
 
-        [Column("DELEGATE_PROVISION_AMOUNT_START")]
+        [Column("DELEGATE_PROVISION_AMOUNT_START", TypeName = "decimal(18,2)")]
         public decimal? amountStart { get; set; }
 
-        [Column("DELEGATE_PROVISION_AMOUNT_END")]
+        [Column("DELEGATE_PROVISION_AMOUNT_END", TypeName = "decimal(18,2)")]
         public decimal? amountEnd { get; set; }
 
         [Column("DELEGATE_PROVISION_OPTIONS")]
