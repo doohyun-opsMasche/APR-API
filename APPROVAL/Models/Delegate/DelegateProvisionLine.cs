@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace APPROVAL.Models
 {
+    [Table("TB_DELEGATE_PROVISION_LINE")]
     public class DelegateProvisionLine
     {
         public DelegateProvisionLine()

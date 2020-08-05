@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace APPROVAL.Models
 {
+    [Table("TB_DELEGATE_PROVISION_CATEGORY")]
     public class DelegateProvisionCategory
     {
         public DelegateProvisionCategory()
