@@ -7,7 +7,7 @@ namespace APPROVAL.Dtos.Forms
         public int id { get; set; }
         public string name { get; set; }
         public string displayName { get; set; }
-        public int level { get; set; }
+        public int groupVersion { get; set; }
         public DateTime insertDate { get; set; }
     }
 }
