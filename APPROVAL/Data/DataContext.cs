@@ -13,6 +13,17 @@ namespace APPROVAL.Data
         public DbSet<FormCategory> FormCategorys { get; set; }
         public DbSet<Form> Forms { get; set; }
         public DbSet<FormDisplayAuth> FormDisplayAuths { get; set; }
+        public DbSet<ApprovalReference> ApprovalReferences { get; set; }
+        public DbSet<ApprovalRequestUser> ApprovalRequestUsers { get; set; }
+        public DbSet<ApprovalUser> ApprovalUsers { get; set; }
+        public DbSet<AttachFile> AttachFiles { get; set; }
+        public DbSet<DelegationUser> DelegationUsers { get; set; }
+        public DbSet<ProcessInstance> ProcessInstances { get; set; }
+        public DbSet<DelegateProvision> DelegateProvisions { get; set; }
+        public DbSet<DelegateProvisionCategory> DelegateProvisionCategorys { get; set; }
+        public DbSet<DelegateProvisionLine> DelegateProvisionLines { get; set; }
+        public DbSet<DelegateProvisionLineDetail> DelegateProvisionLineDetails { get; set; }
+        public DbSet<Code> Codes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

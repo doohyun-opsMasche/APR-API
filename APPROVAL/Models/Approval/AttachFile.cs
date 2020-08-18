@@ -78,7 +78,7 @@ namespace APPROVAL.Models
         [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(Define))]
         public int size { get; set; }
 
-        [Column("ATTACH_CREATER", TypeName = "char()")]
+        [Column("ATTACH_CREATER", TypeName = "char(1)")]
         [StringLength(20, MinimumLength = 1, ErrorMessageResourceName = "RangeErrorMessage", ErrorMessageResourceType = typeof(Define))]
         [Required(ErrorMessageResourceName = "ErrorMessage", ErrorMessageResourceType = typeof(Define))]
         public string creater { get; set; }
